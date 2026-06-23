@@ -1,0 +1,5 @@
+/symfony/vendor/
+/laravel/vendor/
+/laravel/node_modules/
+.env
+*.log

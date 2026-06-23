@@ -1,0 +1,126 @@
+{
+  "info": {
+    "name": "Laravel - Label API",
+    "description": "CRUD endpoints for the Label resource (variant 160). Base URL is configured via the {{base_url}} variable.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get all labels",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/labels",
+          "host": ["{{base_url}}"],
+          "path": ["api", "labels"]
+        },
+        "description": "Returns the full list of labels."
+      },
+      "response": []
+    },
+    {
+      "name": "Get label by id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/labels/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "labels", "1"]
+        },
+        "description": "Returns a single label by its id. Responds 404 if not found."
+      },
+      "response": []
+    },
+    {
+      "name": "Create label",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Urgent\",\n    \"description\": \"High priority items\",\n    \"color\": \"#FF0000\",\n    \"is_active\": true\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/labels",
+          "host": ["{{base_url}}"],
+          "path": ["api", "labels"]
+        },
+        "description": "Creates a new label. Field \"name\" is required. Responds 201 on success."
+      },
+      "response": []
+    },
+    {
+      "name": "Update label (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Updated name\",\n    \"color\": \"#00FF00\",\n    \"is_active\": false\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/labels/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "labels", "1"]
+        },
+        "description": "Partially updates an existing label. Only the provided fields are changed."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete label",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/labels/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "labels", "1"]
+        },
+        "description": "Deletes a label by id. Responds 204 with no content on success."
+      },
+      "response": []
+    }
+  ]
+}
