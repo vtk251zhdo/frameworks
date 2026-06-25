@@ -16,7 +16,6 @@ class LabelController
     {
     }
 
-    // GET /api/labels — list all labels
     #[Route('', name: 'label_index', methods: ['GET'])]
     public function index(): JsonResponse
     {
@@ -28,7 +27,6 @@ class LabelController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
-    // GET /api/labels/{id} — show a single label
     #[Route('/{id}', name: 'label_show', methods: ['GET'])]
     public function show(int $id): JsonResponse
     {
@@ -41,7 +39,6 @@ class LabelController
         return new JsonResponse($label->toArray(), Response::HTTP_OK);
     }
 
-    // POST /api/labels — create a new label
     #[Route('', name: 'label_create', methods: ['POST'])]
     public function create(Request $request): JsonResponse
     {
@@ -62,7 +59,6 @@ class LabelController
         return new JsonResponse($label->toArray(), Response::HTTP_CREATED);
     }
 
-    // PATCH /api/labels/{id} — partially update a label
     #[Route('/{id}', name: 'label_update', methods: ['PATCH'])]
     public function update(int $id, Request $request): JsonResponse
     {
@@ -92,7 +88,6 @@ class LabelController
         return new JsonResponse($label->toArray(), Response::HTTP_OK);
     }
 
-    // DELETE /api/labels/{id} — delete a label
     #[Route('/{id}', name: 'label_delete', methods: ['DELETE'])]
     public function delete(int $id): JsonResponse
     {

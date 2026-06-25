@@ -8,13 +8,11 @@ use Illuminate\Http\Request;
 
 class LabelController extends Controller
 {
-    // GET /api/labels — list all labels
     public function index(): JsonResponse
     {
         return response()->json(Label::all());
     }
 
-    // GET /api/labels/{id} — show a single label
     public function show(int $id): JsonResponse
     {
         $label = Label::find($id);
@@ -26,7 +24,6 @@ class LabelController extends Controller
         return response()->json($label);
     }
 
-    // POST /api/labels — create a new label
     public function store(Request $request): JsonResponse
     {
         $data = $request->validate([
@@ -41,7 +38,6 @@ class LabelController extends Controller
         return response()->json($label, 201);
     }
 
-    // PATCH /api/labels/{id} — partially update a label
     public function update(Request $request, int $id): JsonResponse
     {
         $label = Label::find($id);
@@ -62,7 +58,6 @@ class LabelController extends Controller
         return response()->json($label);
     }
 
-    // DELETE /api/labels/{id} — delete a label
     public function destroy(int $id): JsonResponse
     {
         $label = Label::find($id);
